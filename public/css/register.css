@@ -1,20 +1,45 @@
 :root{
-    --color1: #f1f6f8;
-    --color2: #b9d4f1; 
-    --color3: #6a759b; 
-    --color4: #21273d; 
+    --color1: #161b22;
+    --color2: #0b0f14; 
+    --color3: #da5b07; 
+    --color4: #d7ddf4; 
 }
+
 body{
+    background-color: var(--color2);
+}
+a{
+    text-decoration: none;
+    cursor: pointer;
+    
+}
+
+.navbar-expand-lg{
+    background: var(--color1);
+}
+.nav-item a{
+    color: var(--color4);
+}
+.nav-item a:hover{
+    color: var(--color3);
+}
+.dropdown-menu{
     background-color: var(--color1);
 }
-
-a{
-    margin-left: 15px;
-    text-decoration: none;
-    color: black;
-    cursor: pointer;
+.dropdown-item:hover{
+    background: none;
 }
 
+.logohader{
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+}
+.logohader img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 .register{
     display: flex;
     position: relative;
@@ -24,9 +49,19 @@ a{
     border-radius: 40px;
     box-shadow: 0 0 5px rgba(0,0,0,0.3);
     overflow: hidden;
-    background-color: #ffff;
+    background-color: var(--color1);
 }
 
+.row label,h1{
+    color: var(--color4);
+}
+.form-check label,p{
+    color: var(--color4);
+}
+.res{
+    color: var(--color4);
+    margin-left: 10px;
+}
 .register-item{
     display: flex;
     justify-content: center;
@@ -38,7 +73,7 @@ a{
 }
 
 .teble{
-    background-color: #ffff;
+    background-color: var(--color2);
     position: absolute;
     width: 550px;
     height: 100%;    
@@ -60,7 +95,12 @@ a{
     height: 100%;
     object-fit: cover;
 }
-
+.btn{
+    border: none;
+    border-radius: 15px;
+    background-color: var(--color2);
+    color: var(--color4);
+}.btn:hover{background-color: var(--color3); color: var(--color4);}
 @media screen and (max-width: 430px){
     .login{
         width: 350px; 
@@ -99,5 +139,12 @@ a{
     .in.active{
         transform: translateY(-500px);
     }
+
+    .navbar-toggler{
+        background-color: var(--color2);
+    }
     
+    .navbar-toggler-icon{
+       color: ;
+    }
 }
