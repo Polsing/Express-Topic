@@ -16,10 +16,12 @@ const debug = require('debug')('app');
 const dashboard = require('./routers/genaral');
 const userOne = require('./routers/userOne');
 const register = require('./routers/register');
+const youporfile = require('./routers/youporfile');
 
 app.use('/',dashboard);
 app.use('/User',userOne);
 app.use('/Register',register);
+app.use('/Youporfile',youporfile);
 
 app.listen(5000, ()=>{
     debug('On port: '+chalk.blue('5000'));
