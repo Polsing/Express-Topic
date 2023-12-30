@@ -45,12 +45,32 @@ router.post('/', async (req, res) => {
           res.redirect('register');
      }
      if (emailSignIn && pwSignIn) {
-          console.log(emailSignIn);
-          console.log(pwSignIn);
-     }
-
-
-     
+          //  console.log(emailSignIn);
+          //  console.log(pwSignIn);
+          try {
+               // ตรวจสอบข้อมูล login จากฐานข้อมูล
+               const user = await db('useraccount')
+                    .where({ Email: emailSignIn ,Passwords:pwSignIn})
+                    .first();
+                    if (user) {
+                         // ถ้า login สำเร็จ, ตั้งค่า userId ใน session
+                         res.cookie("session-id", user.id, {
+                              maxAge: 3600000 // กำหนด timeout หน่วยเป็น millisecond
+                          });
+                          
+                          console.log(req.cookies["session-id"]);
+                          res.redirect('/');
+                          res.end();  // หรือไปที่หน้าอื่น หลังจากล็อกอินสำเร็จ
+                         
+                    }else {
+                         res.redirect('/Register');
+                         res.end();  // หรือไปที่หน้าล็อกอินอีกครั้ง
+                         throw new Error('is not accout');
+                       }
+          } catch (error) {
+               console.log(error);
+          }       
+     }    
 });
 
 module.exports = router;

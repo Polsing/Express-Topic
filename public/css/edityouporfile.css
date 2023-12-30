@@ -1,0 +1,239 @@
+:root{
+    --color1: #161b22;
+    --color2: #0b0f14; 
+    --color3: #da5b07; 
+    --color4: #d7ddf4; 
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+
+body{
+   background-color: var(--color2);
+}
+
+.navbar{
+    background-color: var(--color1);
+}
+.navbar a{
+    color: var(--color4);
+}
+.navbar a:hover{
+    color: var(--color3);
+}
+
+.navbar button{
+    border: none;
+}
+.bi{
+    color: var(--color4);
+    font-size: 1rem;
+}
+.dropdown-menu{
+    background-color: var(--color1);
+}
+.dropdown-item:hover{
+    background: none;
+}
+
+.logo{
+    width: 50px;
+    height: 50px;
+}
+.logo img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* content */
+
+.container{
+    max-width: 1300px;
+    margin: 20px auto;
+    padding: 1rem;
+    
+}
+
+.products-con{
+    display: grid;
+    /* grid-template-columns: repeat(auto-fill, minmax(500px , 1fr)); */
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 0.7rem;
+}
+
+.products-item{
+    height: 600px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    background-color: var(--color1);
+    border-radius: 10px;
+}
+
+/* products-item p1 */
+.you-img{
+    margin: 50px auto;
+    width: 200px;
+    height: 200px;
+    outline: 2px solid var(--color4);
+    border-radius: 100%;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    overflow: hidden;
+}
+.you-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.p1{
+    position: relative;
+    text-align: center;
+    color: var(--color4);
+}
+.user-name{
+    margin: 20px auto;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    max-width: 300px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.user-name button , .follow button ,.saveme{
+    margin-left: 5px;
+    border: none;
+    background: none;
+    color: var(--color4);
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    padding: 5px;
+    font-size: 1.1rem;
+    transition: 0.3s;
+}
+.user-name button:hover ,.follow button:hover ,.saveme:hover{
+    background-color: var(--color3);
+}
+
+.camera{
+    display: flex;
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.bi-camera2,.bi-cloud-download-fill{
+    margin: auto 5px;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    color: #ffff;
+}
+
+.follow{
+    display: grid;
+    /* grid-template-columns: repeat(auto-fill, minmax(500px , 1fr)); */
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0.7rem;
+    max-width: 350px;
+    padding: 5px;
+    margin: 10px auto;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+.follow .bi{
+    margin: auto;
+    width:16px ;
+    height: 16px;
+}
+
+
+/* products-item p2 */
+
+.p2{
+    padding: 20px;
+    color: var(--color4);
+}
+
+.faculty , .branch , .years , .sex{
+    display: flex;
+    margin-bottom: 10px;
+    
+}
+
+.form-select {
+    margin-left: 20px;
+    max-width: 400px;
+    background-color: var(--color2);
+    outline: none;
+    border: none;
+    color: var(--color4);
+}
+.year{
+    max-width: 200px;
+}
+
+.dropdown{
+    margin-left: 20px;
+    
+}
+
+.btn{
+    background-color: var(--color2);
+    color: var(--color4);
+    width: 100px;
+}
+.dropdown-menu{
+    background-color: var(--color2);
+    
+}
+.dropdown-item{
+    color: var(--color4);
+}
+
+ 
+.form-control,.input-group-text{
+    background: var(--color2);
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    border: none;
+    color: var(--color4);
+}
+.form-control:focus{
+    background: var(--color2);
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    border: none;
+    color: var(--color4);
+}
+
+.bio{
+    height: 220px;
+    margin-bottom: 5px;
+}
+
+.con2{
+    margin-top: 0.7rem;
+    grid-template-columns: 1fr;
+}
+
+@media only screen and (max-width: 430px){
+    .products-con{
+        grid-template-columns: repeat(auto-fill, minmax(300px , 1fr));
+    }
+
+    .follow{
+        padding: 20px;
+        max-width: 300px;
+        
+    }
+    .follow input{
+        width: 85px;
+        overflow: hidden;
+    }
+
+    .p1{
+        height: auto;
+    }
+
+}

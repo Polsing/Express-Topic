@@ -10,6 +10,7 @@ router.get('/' , async (req,res)=>{
     } catch (error) {
         console.log(error)
     }
+    console.log(req.cookies["session-id"]);
     res.render('dashboard',{allPost});
 });
 

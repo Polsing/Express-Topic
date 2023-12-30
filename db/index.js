@@ -7,7 +7,7 @@ const db = knex.default({
         password: 'apl.server01',
         host: 'apl-ps.trueddns.com',
         port: 49591,
-        database: 'myprojace'
+        database: 'apl-ps'
     }
 });
 
