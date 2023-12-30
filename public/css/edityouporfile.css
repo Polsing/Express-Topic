@@ -157,7 +157,7 @@ body{
     color: var(--color4);
 }
 
-.faculty , .branch , .years , .sex{
+.faculty , .branch , .years , .sex , .ststus{
     display: flex;
     margin-bottom: 10px;
     

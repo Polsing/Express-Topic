@@ -11,26 +11,27 @@ router.post('/', async (req, res) => {
      const { emailSignIn, pwSignIn, email, pw1, pw2 } = req.body ?? {};
      if (email && pw1 && pw2) {
           try {
-
-               if (pw1 != pw2) {
+               if (pw1 != pw2) 
                     throw new Error('Passwords don\'t match');
+               else{
+                    const result = await db('useraccount').count('email').where({ email: email });
+                    const mail = result[0]['count(`email`)']     
+                    if (mail === 1) 
+                         throw new Error('I already have an email');
+                    else { //create acccount
+                         const result = await db('useraccount').insert({ Email: email,Passwords: pw1 });
+                         const insertedID = result[0];
+                         if(insertedID){
+                              const pf  = await db('userprofile').insert({user_id: insertedID});
+                              const img = await db('images').insert({image_id: insertedID});
+                              const fll = await db('follow').insert({follow_id: insertedID});
+                              if(!pf || !img || !fll)
+                                 throw new Error(); 
+                          }
+                         else
+                             throw new Error();    
                }
-
-               const result = await db('useraccount')
-                    .count('email')
-                    .where({ email: email });
-               const mail = result[0]['count(`email`)']
-               //console.log(mail === 1);
-               if (mail === 1) {
-                    throw new Error('I already have an email');
-               }
-               else {
-                    await db('useraccount').insert({
-                         email: email,
-                         pw: pw1
-                    });
-               }
-
+          }
           } catch (error) {
                console.log(error);
                let errmass = 'มีบ่างอย่างผิกพลาด โปรดลองใหม่ในภายหลัง';
@@ -44,6 +45,7 @@ router.post('/', async (req, res) => {
           }
           res.redirect('register');
      }
+
      if (emailSignIn && pwSignIn) {
           //  console.log(emailSignIn);
           //  console.log(pwSignIn);
@@ -55,20 +57,24 @@ router.post('/', async (req, res) => {
                     if (user) {
                          // ถ้า login สำเร็จ, ตั้งค่า userId ใน session
                          res.cookie("session-id", user.id, {
-                              maxAge: 3600000 // กำหนด timeout หน่วยเป็น millisecond
+                              maxAge: 3 * 24 * 60 * 60 * 1000 // กำหนด timeout หน่วยเป็น millisecond
                           });
                           
                           console.log(req.cookies["session-id"]);
-                          res.redirect('/');
+                          res.redirect('/Youporfile');
                           res.end();  // หรือไปที่หน้าอื่น หลังจากล็อกอินสำเร็จ
                          
-                    }else {
-                         res.redirect('/Register');
-                         res.end();  // หรือไปที่หน้าล็อกอินอีกครั้ง
-                         throw new Error('is not accout');
-                       }
+                    }
+                    else 
+                       throw new Error('*is not account');
+                       
           } catch (error) {
                console.log(error);
+               let err;
+               if(error.message)
+                    err = error.message;
+
+               return res.render('register',{err, val:{emailSignIn,pwSignIn}})
           }       
      }    
 });

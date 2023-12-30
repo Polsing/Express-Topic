@@ -1,3 +1,4 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css");
 :root{
     --color1: #161b22;
     --color2: #0b0f14; 
@@ -74,8 +75,16 @@ body{
 }
 
 /* products-item p1 */
+.p1{
+    position: relative;
+    text-align: center;
+    color: var(--color4);
+    padding: 0 40px;
+}
+
+
 .you-img{
-    margin: 60px auto;
+    margin: 40px auto;
     width: 200px;
     height: 200px;
     outline: 2px solid var(--color4);
@@ -89,15 +98,11 @@ body{
     object-fit: cover;
 }
 
-.p1{
-    position: relative;
-    text-align: center;
-    color: var(--color4);
-}
-.p1 h1{
-    margin: 30px auto;
+.youname{
+    margin: 10px auto;
     box-shadow: 0 0 5px rgba(0,0,0,0.3);
     max-width: 300px;
+    height: 60px;
     border-radius: 10px;
     padding: 10px;
 }
@@ -127,12 +132,32 @@ body{
     box-shadow: 0 0 5px rgba(0,0,0,0.3);
 }
 
-
 /* products-item p2 */
 
 .p2{
     padding: 20px;
     color: var(--color4);
+}
+
+.shadow{
+    background: var(--color2);
+}
+.faculty {
+    display: flex;
+}
+
+.bi-search-heart{
+    font-size: 1rem;
+    color: var(--bs-danger);
+}
+.bi{
+    font-size: 2rem;
+}
+.bi-gender-male ,.bi-gender-female,.bi-gender-neuter,.bi-gender-trans{
+  color:#0d6efd;
+}
+.bi-postcard-heart-fill,.bi-person-hearts,.bi-heartbreak-fill,.bi-emoji-smile{
+    color: #dc3545;
 }
 
 .bio{
@@ -145,6 +170,8 @@ body{
     border-radius: 10px;
     
 }
+
+
 
 .con2{
     margin-top: 0.7rem;
