@@ -77,7 +77,7 @@ router.get('/select',async (req,res)=>{
         let allfaculty = [];
         try {
             allfaculty = await db.select().from('faculty');
-            allUser = await db.select('name').from('userprofile').orWhereILike('name', '%' + searchAll + '%')
+            allUser = await db.select('*').from('userprofile').orWhereILike('name', '%' + searchAll + '%')
         } catch (error) {
             console.log(error)
         }
