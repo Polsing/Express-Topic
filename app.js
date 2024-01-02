@@ -23,7 +23,13 @@ app.use('/',dashboard);
 app.use('/User',userOne);
 app.use('/Register',register);
 app.use('/Youporfile',requireLogin,youporfile);
+app.use('/Logout',(req,res)=>{
+    res.clearCookie("session-id").redirect('/');
+})
 
+app.use('/',(req,res)=>{
+    res.status(404).render('st404');
+})
 app.listen(5000, ()=>{
     debug('On port: '+chalk.blue('5000'));  
 }) 

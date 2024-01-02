@@ -60,7 +60,7 @@
                                         Change Password
                                     </a>
                                 </li>
-                                <li><a class="dropdown-item" href="#">
+                                <li><a class="dropdown-item" href="/Logout">
                                         <svg xmlns="http://www.w3.org/2000/svg" style="margin: auto 5px;" width="20"
                                             height="20" fill="currentColor" class="bi bi-box-arrow-right"
                                             viewBox="0 0 16 16">
@@ -92,7 +92,7 @@
                 <h3 class="fw-semibold">{{userData.name}}</h3>
                </div>
                 <div class="follow">
-                    <a href="#">
+                    <a href="{{#if userData.facebook}}{{userData.facebook}}{{else}}#{{/if}}">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="#1877F2" class="bi bi-facebook"
                             viewBox="0 0 16 16">
                             <path
@@ -100,7 +100,7 @@
                         </svg>
                     </a>
 
-                    <a href="#">
+                    <a href="{{#if userData.instagram}}{{userData.instagram}}{{else}}#{{/if}}">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="#E4405F" class="bi bi-instagram"
                             viewBox="0 0 16 16">
                             <path
@@ -108,7 +108,7 @@
                         </svg>
                     </a>
 
-                    <a href="#">
+                    <a href="{{#if userData.twitter}}{{userData.twitter}}{{else}}#{{/if}}">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="#1DA1F2" class="bi bi-twitter"
                             viewBox="0 0 16 16">
                             <path
@@ -116,7 +116,7 @@
                         </svg>
                     </a>
 
-                    <a href="#">
+                   <a href="{{#if userData.youtube}}{{userData.youtube}}{{else}}#{{/if}}">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="#FF0000" class="bi bi-youtube"
                             viewBox="0 0 16 16">
                             <path
@@ -124,7 +124,7 @@
                         </svg>
                     </a>
 
-                    <a href="#">
+                   <a href="{{#if userData.tiktok}}{{userData.tiktok}}{{else}}#{{/if}}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#000000"
                             class="bi bi-tiktok" viewBox="0 0 16 16">
                             <path
@@ -132,7 +132,7 @@
                         </svg>
                     </a>
 
-                    <a href="#">
+                    <a href="{{#if userData.github}}{{userData.github}}{{else}}#{{/if}}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-github" viewBox="0 0 16 16">
                             <path

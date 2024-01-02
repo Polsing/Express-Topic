@@ -72,11 +72,16 @@
             Show password
           </label>
           {{#if errmass}}
-            <p style="color: red;">มีบางอย่างผิดผลาด.</p>
+            <div class="alert alert-danger font-monospace" role="alert">
+                มีบางอย่างผิดผลาด.!
+            </div>
           {{/if}}
           {{#if err}}
-          <p style="color: red;">{{err}}</p>
-          <span style="color: var( --color4);">Email or password is incorrect. Or if you don't have an account yet, sign up.</span>
+              <div class="alert alert-danger font-monospace" role="alert">
+                    {{err}}
+                    <br>
+                    Email or password is incorrect. Or if you don't have an account yet, sign up.
+              </div>
           {{/if}}
         </div>
         <br>
@@ -111,7 +116,9 @@
             Show password
           </label>
           {{#if errmass}}
-          <p>{{errmass}}</p> 
+          <div class="alert alert-danger font-monospace" role="alert">
+              {{errmass}}
+          </div>
           {{/if}}
         </div>
         <br>

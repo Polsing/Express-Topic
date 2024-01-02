@@ -44,14 +44,14 @@
                 <li>
                   <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" href="/Register">SignIn & SignUp</a></li>
+               
               </ul>
             </li>
 
           </ul>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn" type="submit">Search</button>
+          <form class="d-flex" role="search" action="/select" method="get">
+            <input class="form-control me-2" type="search" placeholder="{{#if searchAll}} {{searchAll}} {{else}} Search{{/if}}" aria-label="Search" name="searchAll">
+            <button class="btns" type="submit" name="btn-search" value="true">Search</button>
           </form>
         </div>
       </div>
@@ -59,21 +59,76 @@
   </header>
 
   <div class="container">
-    <div class="products-con">
-      {{#each allPost}}
-      {{#if this.name}}
-      <div class="products-item">
-        <div class="img-user">
-          <img src="images/profile.jpg" alt="">
+    <form action="/select" method="get">
+    <nav class="navbar navbar-expand-lg back">
+      <div class="container-fluid">
+        <span class="navbar-brand"><i class="bi bi-compass"></i></span>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="bi bi-arrow-down-square-fill"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <select name="faculty" class="form-select faculty" aria-label="Default select example" id="faculty" oninput="toggleButton('faculty','savefaculty-branch')" onchange="updateBranchOptions()">
+          <option selected disabled>{{#if faculty}} {{faculty}} {{else}}Faculty {{/if}}</option>
+          {{#each allfaculty}}
+          <option value="{{this.faculty_name}}">{{this.faculty_name}}</option>
+          {{/each}}
+          </select>
+
+          <select name="branch" class="form-select branch" aria-label="Default select example" id="branch" oninput="toggleButton('branch','savefaculty-branch')">
+          <option selected disabled>{{#if branch}} {{branch}} {{else}}Branch{{/if}}</option>
+          </select>
+
+          <select name="Years" class="form-select Years" aria-label="Default select example">
+          <option selected disabled>{{#if Years}} ปี {{Years}} {{else}}Years{{/if}}</option>
+          <option value="1">ปี 1</option>
+          <option value="2">ปี 2</option>
+          <option value="3">ปี 3</option>
+          <option value="4">ปี 4</option>
+          </select>
+
+          <select name="Status" class="form-select Status" aria-label="Default select example">
+          <option selected disabled> {{#if sta}} {{sta}} {{else}}Status{{/if}}</option>
+          <option value="1">โสด</option>
+          <option value="2">มีเเฟนเเล้ว</option>
+          <option value="3">เพื่อน</option>
+          <option value="4">พี่น้อง</option>
+          </select>
+
+          <select name="Gender" class="form-select Gender" aria-label="Default select example">
+          <option selected disabled>{{#if gen}} {{gen}} {{else}}Gender{{/if}}</option>
+          <option value="1">male</option>
+          <option value="2">female</option>
+          <option value="3">neuter</option>
+          <option value="4">trans</option>
+          </select>
+          <button  class="btn btn-outline-info" name="btn-select" value="true">Get</button>
         </div>
-        <a href="/User/{{this.user_id}}">{{this.name}}</a>
       </div>
+    </nav>
+    </form>
+    <div class="products-con">
+      {{#each allUser}}
+      {{#if this.name}}
+       <div class="products-item">
+         <div class="img-user">
+            <img src="images/profile.jpg" alt="">
+         </div>
+
+         <div class="card-body" style="margin-left: 20px;">
+                <h5 class="card-title">{{this.name}}</h5>
+                <p class="card-text">{{this.bio}}</p>
+                <p class="card-text end">SRIPATUM UNIVERSITY</p>
+         </div>
+         <a href="/User/{{this.id}}" class="ff-id"><i class="bi bi-cursor-fill"></i></a>
+        </div>
       {{/if}}
       {{/each}}
+
     </div>
   </div>
 
 </body>
+<script src="js/dashboard_branch.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 

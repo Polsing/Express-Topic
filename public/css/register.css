@@ -1,9 +1,10 @@
 :root{
     --color1: #161b22;
     --color2: #0b0f14; 
-    --color3: #da5b07; 
+    --color3: #fd7e14; 
     --color4: #d7ddf4; 
 }
+
 
 body{
     background-color: var(--color2);
@@ -118,7 +119,7 @@ a{
       position: relative;
       flex-direction: column;
       width: 350px;
-      height: 420px;
+      height: 480px;
       overflow: hidden;
     }
 

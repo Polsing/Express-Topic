@@ -60,7 +60,7 @@ router.post('/', async (req, res) => {
                               maxAge: 3 * 24 * 60 * 60 * 1000 // กำหนด timeout หน่วยเป็น millisecond
                           });
                           
-                          console.log(req.cookies["session-id"]);
+                          //console.log(req.cookies["session-id"]);
                           res.redirect('/Youporfile');
                           res.end();  // หรือไปที่หน้าอื่น หลังจากล็อกอินสำเร็จ
                          

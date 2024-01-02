@@ -9,7 +9,7 @@ router.get('/', async (req,res)=>{
     const yourID = req.cookies["session-id"];
     let yourData;
     try {
-      yourData = await db.select('*').from('userprofile').where({ user_id: yourID });
+      yourData = await db.select('userprofile.*', 'follow.*').from('userprofile').innerJoin('follow', 'userprofile.user_id', '=', 'follow.follow_id').where({ user_id: yourID });
     } catch (error) {
       console.log(error);
     }
